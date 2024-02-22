@@ -89,6 +89,14 @@ range_end=$(calculate_last_ip $WARP_IP_RANGE)
 # Print the calculated range
 echo "Calculated WARP IP range: $range_start - $range_end"
 
+# First of all, check if we already have a route to the server via the WARP interface
+# If we do, we don't need to do anything
+if [[ $(route get $LOCAL_SERVER_IP | grep -c "interface: utun") -eq 1 ]]; then
+  echo ""
+  echo "Seems like there is already a static route to the server via a virtual interface. If this is an error, delete the route and try again."
+  exit 0
+fi
+
 # List all active interfaces and their IP addresses
 INTERFACES=$(ifconfig | awk '/^[a-z]/ {intf=$1; sub(/:/, "", intf)} /inet / {print intf, $2}')
 
