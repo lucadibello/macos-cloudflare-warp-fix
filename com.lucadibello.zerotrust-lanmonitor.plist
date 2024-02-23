@@ -3,16 +3,20 @@
 <plist version="1.0">
 <dict>
     <key>Label</key>
-    <string>com.yourname.checknetwork</string>
+    <string>com.lucadibello.zerotrust-lanmonitor</string>
     <key>ProgramArguments</key>
     <array>
-        <string>/path/to/check_network.sh</string>
+        <string>/path/to/YourExecutable</string>
     </array>
-    <key>WatchPaths</key>
-    <array>
-        <string>/Library/Preferences/SystemConfiguration/</string>
-    </array>
-    <key>ThrottleInterval</key>
-    <integer>60</integer>
+    <key>RunAtLoad</key>
+    <true/>
+    <key>KeepAlive</key>
+    <true/>
+    <key>StandardErrorPath</key>
+    <string>/var/log/zerotrust-lanmonitor-error.log</string>
+    <key>StandardOutPath</key>
+    <string>/var/log/zerotrust-lanmonitor-output.log</string>
+    <key>WorkingDirectory</key>
+    <string>/path/to/working/directory</string>
 </dict>
 </plist>
