@@ -19,7 +19,7 @@ load:
 	@echo "You can now remove the cloned repository"
 
 # Install the service on the system (MacOS only)
-install:
+install: build
 	@if [ "$$(id -u)" != "0" ]; then \
 		echo "Please run as root"; \
 		exit 1; \
