@@ -53,16 +53,17 @@ class NetworkMonitor {
     }
     
     func runScriptWithSudo() {
-        let scriptPath = "/etc/zerotrust-lanmonitor/enforce-lan-zerotrust.sh"
+        let scriptPath = "/opt/zerotrust-lanmonitor/enforce-lan-zerotrust.sh"
+
         // Directly use the parameters since they don't contain special characters
         let warpIpRange = config.warpIpRange
         let lanServerIp = config.lanServerIp
         
         // Construct the AppleScript command with parameters
         let appleScriptString = """
-        do shell script "sudo \(scriptPath) \(lanServerIp) \(warpIpRange)" with administrator privileges
+        do shell script "sudo \(scriptPath) \(lanServerIp) \(warpIpRange)" 
         """
-        
+                
         var error: NSDictionary?
         if let scriptObject = NSAppleScript(source: appleScriptString) {
             let output = scriptObject.executeAndReturnError(&error)
