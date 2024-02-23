@@ -87,4 +87,4 @@ unload:
 verify:
 	@echo "Verifying the service..."
 	@launchctl list | grep com.lucadibello.zerotrust-lanmonitor
-	@echo "Done! The service is runningo"
+	@echo "Done! The service is running"
