@@ -6,7 +6,7 @@
     <string>com.lucadibello.zerotrust-lanmonitor</string>
     <key>ProgramArguments</key>
     <array>
-        <string>/path/to/YourExecutable</string>
+        <string>/usr/local/bin/zerotrust-lanmonitor</string>
     </array>
     <key>RunAtLoad</key>
     <true/>
@@ -16,7 +16,5 @@
     <string>/var/log/zerotrust-lanmonitor-error.log</string>
     <key>StandardOutPath</key>
     <string>/var/log/zerotrust-lanmonitor-output.log</string>
-    <key>WorkingDirectory</key>
-    <string>/path/to/working/directory</string>
 </dict>
 </plist>
