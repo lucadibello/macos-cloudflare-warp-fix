@@ -6,12 +6,6 @@
 # enabling connections to a server on the LAN via the Zero Trust network rather
 # than via the local interface.
 
-# Check if the user has executed the script with root privileges
-if [ "$EUID" -ne 0 ]; then
-    echo "Please run this script with root privileges. The script needs to alter the system routing table!"
-    exit 1
-fi
-
 # Check if the user passed the local server IP as an argument
 if [ -z "$1" ]; then
     echo "Usage: $0 <local_server_ip> [warp_interface_ip_range]"
