@@ -85,6 +85,10 @@ unload:
 
 # Verify if the service is running
 verify:
+	@if [ "$$(id -u)" != "0" ]; then \
+		echo "Please run as root"; \
+		exit 1; \
+	fi
 	@echo "Verifying the service..."
 	@launchctl list | grep com.lucadibello.zerotrust-lanmonitor
 	@echo "Done! The service is running"
